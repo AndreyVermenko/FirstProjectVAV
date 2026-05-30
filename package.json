@@ -1,0 +1,19 @@
+{
+  "name": "cosmoplane",
+  "version": "1.0.0",
+  "description": "Браузерная игра на JavaScript: вид из кабины космолёта, полёт в открытом космосе и уклонение от астероидов с управлением стрелками.",
+  "type": "commonjs",
+  "scripts": {
+    "test": "node --test",
+    "start": "node serve.js"
+  },
+  "keywords": [
+    "game",
+    "javascript",
+    "canvas",
+    "browser",
+    "space",
+    "asteroids"
+  ],
+  "license": "MIT"
+}

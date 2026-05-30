@@ -1,0 +1,230 @@
+/* style.css — оформление игры «Космолёт» */
+
+:root {
+  --cyan: #7ef0c0;
+  --blue: #aef3ff;
+  --bg: #01030a;
+  --panel: rgba(10, 18, 34, 0.82);
+  --border: rgba(120, 235, 255, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--bg);
+  color: #e8f6ff;
+  font-family: "Consolas", "DejaVu Sans Mono", "Courier New", monospace;
+  -webkit-user-select: none;
+  user-select: none;
+  touch-action: none;
+}
+
+#game-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+#game {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: crosshair;
+}
+
+/* Кнопка звука */
+#mute-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 20;
+  width: 42px;
+  height: 42px;
+  font-size: 18px;
+  line-height: 1;
+  background: var(--panel);
+  color: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.1s ease, background 0.2s ease;
+}
+
+#mute-btn:hover {
+  background: rgba(20, 40, 70, 0.9);
+  transform: scale(1.05);
+}
+
+/* Слой меню поверх игры */
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(ellipse at center, rgba(4, 10, 26, 0.55), rgba(1, 3, 10, 0.92));
+  backdrop-filter: blur(2px);
+}
+
+.overlay.hidden {
+  display: none;
+}
+
+.screen {
+  width: min(92vw, 540px);
+  padding: 36px 28px;
+  text-align: center;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  box-shadow: 0 0 60px rgba(40, 120, 200, 0.25), inset 0 0 30px rgba(20, 60, 120, 0.2);
+  animation: pop 0.35s ease;
+}
+
+.screen.hidden {
+  display: none;
+}
+
+@keyframes pop {
+  from { transform: translateY(14px) scale(0.97); opacity: 0; }
+  to   { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+.title {
+  font-size: clamp(34px, 8vw, 64px);
+  letter-spacing: 6px;
+  color: var(--blue);
+  text-shadow: 0 0 18px rgba(110, 230, 255, 0.65);
+  margin-bottom: 10px;
+}
+
+.title.danger {
+  color: #ff8a8a;
+  text-shadow: 0 0 18px rgba(255, 90, 90, 0.6);
+  font-size: clamp(26px, 6vw, 46px);
+}
+
+.subtitle {
+  color: #9fc7e0;
+  font-size: clamp(13px, 3.4vw, 18px);
+  margin-bottom: 26px;
+}
+
+/* Подсказка по управлению со «стрелками» */
+.controls-hint {
+  margin-bottom: 26px;
+  color: #bfe6f5;
+  font-size: clamp(12px, 3.2vw, 15px);
+}
+
+.keys {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.keys-row {
+  display: flex;
+  gap: 6px;
+}
+
+.key {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  color: var(--cyan);
+  background: rgba(10, 30, 50, 0.8);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.4), inset 0 0 10px rgba(60, 160, 200, 0.15);
+}
+
+/* Главная кнопка */
+.btn {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 14px 34px;
+  font-family: inherit;
+  font-size: clamp(15px, 4vw, 20px);
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #022;
+  background: linear-gradient(180deg, #9af7d4, #4fcf9e);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 0 24px rgba(110, 240, 192, 0.5);
+  transition: transform 0.1s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 34px rgba(110, 240, 192, 0.8);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.hint {
+  margin-top: 16px;
+  font-size: clamp(11px, 3vw, 14px);
+  color: #7fa6bd;
+}
+
+.hint b,
+.controls-hint b {
+  color: var(--cyan);
+}
+
+.record {
+  margin-top: 10px;
+  color: #ffd479;
+  font-size: clamp(12px, 3.2vw, 15px);
+}
+
+/* Статистика на экране окончания */
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin: 6px 0 26px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 96px;
+  padding: 14px 12px;
+  background: rgba(8, 20, 38, 0.7);
+  border: 1px solid rgba(120, 235, 255, 0.2);
+  border-radius: 10px;
+}
+
+.stat-label {
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: #88b6cf;
+}
+
+.stat-value {
+  font-size: clamp(18px, 5vw, 26px);
+  font-weight: bold;
+  color: var(--blue);
+}

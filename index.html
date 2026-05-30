@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Космолёт — уклонение от астероидов</title>
+  <meta name="description" content="Браузерная игра на JavaScript: вид из кабины космолёта, полёт в открытом космосе и уклонение от астероидов стрелками." />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div id="game-container">
+    <!-- Игровое полотно: космос, астероиды и кабина рисуются здесь -->
+    <canvas id="game"></canvas>
+
+    <!-- Кнопка звука -->
+    <button id="mute-btn" type="button" title="Звук (M)" aria-label="Переключить звук">🔊</button>
+
+    <!-- Экраны меню поверх игры -->
+    <div id="overlay" class="overlay">
+      <!-- Стартовый экран -->
+      <section id="start-screen" class="screen">
+        <h1 class="title">КОСМОЛЁТ</h1>
+        <p class="subtitle">Уклоняйся от астероидов в открытом космосе</p>
+
+        <div class="controls-hint">
+          <div class="keys">
+            <span class="key">↑</span>
+            <div class="keys-row">
+              <span class="key">←</span>
+              <span class="key">↓</span>
+              <span class="key">→</span>
+            </div>
+          </div>
+          <p>Управляй кабиной стрелками <b>← ↑ ↓ →</b> (или <b>WASD</b>)</p>
+        </div>
+
+        <button id="start-btn" class="btn" type="button">НАЧАТЬ ПОЛЁТ</button>
+        <p class="hint">Нажми <b>Пробел</b>, чтобы стартовать</p>
+        <p class="record">Рекорд: <span id="start-best">0</span> КМ</p>
+      </section>
+
+      <!-- Экран окончания игры -->
+      <section id="over-screen" class="screen hidden">
+        <h1 class="title danger">КОРПУС РАЗРУШЕН</h1>
+        <div class="stats">
+          <div class="stat"><span class="stat-label">Дистанция</span><span class="stat-value"><span id="final-score">0</span> КМ</span></div>
+          <div class="stat"><span class="stat-label">Уклонений</span><span class="stat-value" id="final-dodged">0</span></div>
+          <div class="stat"><span class="stat-label">Рекорд</span><span class="stat-value"><span id="final-best">0</span> КМ</span></div>
+        </div>
+        <button id="retry-btn" class="btn" type="button">ЛЕТЕТЬ СНОВА</button>
+        <p class="hint">Нажми <b>Пробел</b> для рестарта</p>
+      </section>
+    </div>
+  </div>
+
+  <script src="js/engine.js"></script>
+  <script src="js/game.js"></script>
+</body>
+</html>
