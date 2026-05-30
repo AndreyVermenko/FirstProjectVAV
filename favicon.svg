@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="12" fill="#060a1c"/>
+  <circle cx="14" cy="14" r="1.6" fill="#aef3ff"/>
+  <circle cx="50" cy="20" r="1.4" fill="#aef3ff"/>
+  <circle cx="22" cy="50" r="1.2" fill="#aef3ff"/>
+  <circle cx="46" cy="46" r="1.6" fill="#aef3ff"/>
+  <!-- Космолёт -->
+  <path d="M32 10 C40 18 42 30 42 38 L22 38 C22 30 24 18 32 10 Z" fill="#cfe8ff"/>
+  <path d="M32 10 C36 14 38 22 39 30 L32 30 Z" fill="#9fc7e0"/>
+  <circle cx="32" cy="24" r="4.5" fill="#7ef0c0"/>
+  <path d="M22 38 L16 46 L24 42 Z" fill="#5fb6d6"/>
+  <path d="M42 38 L48 46 L40 42 Z" fill="#5fb6d6"/>
+  <path d="M28 40 L32 54 L36 40 Z" fill="#ff9a4d"/>
+  <path d="M30 40 L32 48 L34 40 Z" fill="#ffd479"/>
+</svg>
